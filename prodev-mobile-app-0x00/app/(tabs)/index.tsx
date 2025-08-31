@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text>** First App Created**</Text>
+      <Text>First App Created</Text>
 
       <View style={styles.inner}>
         <Text style={styles.largeText}>
