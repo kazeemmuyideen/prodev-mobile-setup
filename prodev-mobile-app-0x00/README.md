@@ -1,3 +1,9 @@
+# Prodev Mobile App 0x00
+
+This is my first mobile app built with React Native and Expo.  
+It displays a simple Home screen with a welcome message.
+
+
 # prodev-mobile-app-0x00 — First Expo Router App
 
 ## Scaffolding Steps

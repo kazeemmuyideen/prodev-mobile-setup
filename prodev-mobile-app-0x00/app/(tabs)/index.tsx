@@ -2,18 +2,8 @@ import { View, Text, StyleSheet } from "react-native";
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <Text>First App Created</Text>
-
-      <View style={styles.inner}>
-        <Text style={styles.largeText}>
-          Typescript is great if you practice more
-        </Text>
-        <Text style={styles.mediumText}>
-          React Native provides you a single codebase for cross platforms
-        </Text>
-        <Text style={styles.smallText}>ALX is awesome</Text>
-      </View>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Welcome to My First Mobile App 🚀</Text>
     </View>
   );
 }
