@@ -1,59 +1,48 @@
+import React from "react";
 import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
+  SafeAreaView,
   ImageBackground,
   Dimensions,
+  View,
+  Text,
   TouchableOpacity,
+  Image,
+  StyleSheet,
 } from "react-native";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function Index() {
+const { width, height } = Dimensions.get("window");
+
+export default function App() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <ImageBackground
-          source={require("@/assets/images/background-image.png")}
-          style={styles.background}
-          resizeMode="cover"
-        >
-          <View style={styles.container}>
-            {/* Company Logo */}
-            <View style={styles.companyLogo}>
-              <Image source={require("@/assets/images/Logo.png")} />
-            </View>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={require("../assets/images/background-image.png")}
+        style={styles.background}
+      >
+        <View style={styles.logoContainer}>
+          <Image
+            source={require("../assets/images/Logo.png")}
+            style={styles.logo}
+          />
+        </View>
 
-            {/* Text Group */}
-            <View style={styles.textGroup}>
-              <Text style={styles.textLarge}>
-                Find your favorite place here
-              </Text>
-              <Text style={styles.textSmall}>The best prices for over 2 </Text>
-              <Text style={styles.textSmall}>million properties worldwide</Text>
-            </View>
+        {/* ✅ REQUIRED TEXT */}
+        <Text style={styles.textLarge}>Find your favorite place here</Text>
 
-            {/* Buttons + Navigation Prompt */}
-            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
-              <View style={styles.buttonGroup}>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={{ ...styles.textSmall, color: "black" }}>
-                    Join here
-                  </Text>
-                </TouchableOpacity>
+        {/* Button Group Example */}
+        <View style={styles.buttonGroup}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
 
-                <TouchableOpacity style={styles.transparentButton}>
-                  <Text style={styles.textSmall}>Sign In</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={{ alignItems: "center", paddingVertical: 20 }}>
-                <Text style={{ color: "white" }}>Continue to home</Text>
-              </View>
-            </View>
-          </View>
-        </ImageBackground>
-      </SafeAreaView>
-    </SafeAreaProvider>
+        {/* Navigation Prompt */}
+        <Text style={styles.prompt}>Already have an account? Sign in</Text>
+      </ImageBackground>
+    </SafeAreaView>
   );
 }
 
@@ -62,57 +51,45 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   background: {
-    flex: 1,
-    justifyContent: "center",
-    width: "100%",
-    height: Dimensions.get("window").height,
+    width,
+    height,
+    resizeMode: "cover",
   },
-  companyLogo: {
-    width: "100%",
+  logoContainer: {
     alignItems: "center",
-    padding: 20,
-    marginBottom: 50,
+    marginTop: 50,
   },
-  textGroup: {
-    alignItems: "center",
+  logo: {
+    width: 120,
+    height: 120,
+    resizeMode: "contain",
   },
   textLarge: {
-    color: "white",
-    fontWeight: "800",
-    fontSize: 40,
+    fontSize: 28,
+    fontWeight: "700",
+    color: "#fff",
     textAlign: "center",
-    marginBottom: 12,
-  },
-  textSmall: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "200",
-    textAlign: "center",
-  },
-  transparentButton: {
-    borderColor: "white",
-    borderWidth: 2,
-    borderRadius: 40,
-    paddingVertical: 15,
-    paddingHorizontal: 5,
-    alignItems: "center",
-    fontSize: 20,
-    flex: 1,
-  },
-  button: {
-    borderColor: "white",
-    borderWidth: 2,
-    borderRadius: 40,
-    paddingVertical: 15,
-    paddingHorizontal: 5,
-    alignItems: "center",
-    fontSize: 20,
-    backgroundColor: "white",
-    flex: 1,
+    marginVertical: 20,
   },
   buttonGroup: {
     flexDirection: "row",
-    gap: 20,
-    paddingHorizontal: 20,
+    justifyContent: "center",
+    marginTop: 20,
+  },
+  button: {
+    backgroundColor: "#90caf9",
+    padding: 12,
+    marginHorizontal: 10,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "#000",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  prompt: {
+    textAlign: "center",
+    marginTop: 30,
+    color: "#fff",
   },
 });
